@@ -24,7 +24,7 @@ const initialState = {
 function Homepage() {
   const [loading, setLoading] = React.useState(false);
   const [recipes, setRecipes] = React.useState([]);
-  const [favorites, setFavorites] = React.useState([{"id":654959,"title":"Pasta With Tuna","image":"https://spoonacular.com/recipeImages/654959-312x231.jpg","imageType":"jpg"}]);
+  const [favorites, setFavorites] = React.useState([]);
   const [apiCalledSuccess, setApiCalledSuccess] = React.useState(false);
   const [filteredState, dispatch] = React.useReducer(reducer, initialState);
   const {theme} = React.useContext(ThemeContext);
@@ -45,7 +45,7 @@ function Homepage() {
     }
     getReceipes();
   };
-   const addToFavorites = React.useCallback((getCurrentRecipeItem) => {
+  const addToFavorites = React.useCallback((getCurrentRecipeItem) => {
     let cpyFavorites = [...favorites];
     const index = cpyFavorites.findIndex(
       (item) => item.id === getCurrentRecipeItem.id
@@ -60,20 +60,20 @@ function Homepage() {
     }
   },[favorites]);
   const removeFavorites = (getCurrent) => {
-    let cpyFavorites = favorites && [...favorites];
+    let cpyFavorites = [...favorites];
     cpyFavorites = cpyFavorites.filter((item) => item.id !== getCurrent);
     setFavorites(cpyFavorites);
     localStorage.setItem("favorites", JSON.stringify(cpyFavorites));
   };
 
   React.useEffect(() => {
-    const extractFavorites = JSON.parse(localStorage.getItem("favorites"));
+    const extractFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(extractFavorites);
   }, []);
 
-  const filteredFavoritesItems = favorites && favorites.filter((item) => 
+  const filteredFavoritesItems = favorites && favorites.length > 0 ? favorites.filter((item) => 
      item.title.toLowerCase().includes(filteredState.filteredValue)
-  )
+  ):[];
 
   const renderRecipes = React.useCallback(()=>{
     if(recipes && recipes.length > 0){
