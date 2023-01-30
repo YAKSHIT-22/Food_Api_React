@@ -1,0 +1,40 @@
+.favorites-wrapper{
+    flex-direction:column;
+    display:flex;
+}
+
+.favorites{
+    display:flex;
+    gap:25px;
+    overflow:auto;
+    margin-bottom: 30px;
+}
+
+.items{
+    display:flex;
+    gap:25px;
+    margin-bottom:30px;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.loading, .no-items{
+    font-size:40px;
+    text-transform:uppercase;
+    color:white;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.favorites-title{
+    color:#fa6400;
+    font-weight: 700;
+}
+
+.search-favorite input{
+    padding:10px 50px;
+    margin-bottom: 38px;
+}

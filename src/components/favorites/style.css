@@ -1,0 +1,29 @@
+.favorite-item{
+    border:1px solid red;
+    padding:10px;
+    box-shadow: 0px 0px 5px 0px rgba(250,100,0,1);
+    background-color:#fff;
+    margin-top:20px;
+}
+
+.favorite-item p{
+    color:#fa6400;
+    font-weight: 700;
+    font-size:20px;
+    margin: 12px 0px 12px 0px;
+}
+
+.favorite-item button{
+    background-color:#fa6400;
+    border:1px solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: rgb(0 0 0/2%) 0 1px 3px 0;
+    color:#fff;
+    cursor: pointer;
+    font-size:14px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin:0;
+    padding: 10px;
+}
