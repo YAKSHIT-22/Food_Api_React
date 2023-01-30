@@ -71,7 +71,7 @@ function Homepage() {
     setFavorites(extractFavorites);
   }, []);
 
-  const filteredFavoritesItems = favorites.filter((item) => 
+  const filteredFavoritesItems = favorites && favorites.filter((item) => 
      item.title.toLowerCase().includes(filteredState.filteredValue)
   )
 
