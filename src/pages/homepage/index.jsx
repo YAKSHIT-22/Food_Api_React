@@ -24,7 +24,7 @@ const initialState = {
 function Homepage() {
   const [loading, setLoading] = React.useState(false);
   const [recipes, setRecipes] = React.useState([]);
-  const [favorites, setFavorites] = React.useState([]);
+  const [favorites, setFavorites] = React.useState([{"id":654959,"title":"Pasta With Tuna","image":"https://spoonacular.com/recipeImages/654959-312x231.jpg","imageType":"jpg"}]);
   const [apiCalledSuccess, setApiCalledSuccess] = React.useState(false);
   const [filteredState, dispatch] = React.useReducer(reducer, initialState);
   const {theme} = React.useContext(ThemeContext);
@@ -45,7 +45,7 @@ function Homepage() {
     }
     getReceipes();
   };
-  const addToFavorites = React.useCallback((getCurrentRecipeItem) => {
+   const addToFavorites = React.useCallback((getCurrentRecipeItem) => {
     let cpyFavorites = [...favorites];
     const index = cpyFavorites.findIndex(
       (item) => item.id === getCurrentRecipeItem.id
