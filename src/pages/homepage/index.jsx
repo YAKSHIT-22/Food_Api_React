@@ -112,7 +112,7 @@ function Homepage() {
         </div>
         <div className="favorites">
         {
-       !filteredFavoritesItems.length && <div className="no-items">No Favorites are found</div>
+      filteredFavoritesItems && !filteredFavoritesItems.length && <div className="no-items">No Favorites are found</div>
       }
           {filteredFavoritesItems && filteredFavoritesItems.length > 0
             ? filteredFavoritesItems.map((item) => (
