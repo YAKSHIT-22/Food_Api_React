@@ -60,7 +60,7 @@ function Homepage() {
     }
   },[favorites]);
   const removeFavorites = (getCurrent) => {
-    let cpyFavorites = [...favorites];
+    let cpyFavorites = favorites && [...favorites];
     cpyFavorites = cpyFavorites.filter((item) => item.id !== getCurrent);
     setFavorites(cpyFavorites);
     localStorage.setItem("favorites", JSON.stringify(cpyFavorites));
